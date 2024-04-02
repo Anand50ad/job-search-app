@@ -4,6 +4,7 @@ export interface Job {
   id: number;
   reference: string;
   title: string;
+  starred?: boolean;
 }
 
 export interface JobDetails {

@@ -1,15 +1,5 @@
 <div class="main-container">
   <div class="page-header mb-2">{{ globalConstants.find_your_job }}</div>
-
-  <p-tabMenu
-    [model]="itemsTabMenu"
-    [activeItem]="activeItem"
-    (activeItemChange)="onActiveItemChange($event)"
-  ></p-tabMenu>
-
-  <div class="job-list">
-    <app-job></app-job>
-  </div>
-
+  <p-tabMenu [model]="itemsTabMenu"></p-tabMenu>
   <router-outlet></router-outlet>
 </div>

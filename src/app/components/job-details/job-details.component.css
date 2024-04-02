@@ -1,0 +1,12 @@
+.company-logo {
+  width: 100px;
+  height: 100px;
+}
+
+.blue-oval {
+  background-color: #034694;
+  color: white;
+  font-weight: 500;
+  border-radius: 15px;
+  padding: 4px 6px;
+}
