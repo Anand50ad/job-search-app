@@ -1,0 +1,29 @@
+<div class="job-entry" *ngFor="let job of jobList; let i = index">
+  <div class="grid">
+    <div class="col-1 mt-2">
+      <img [src]="job.companyLogo" class="company-logo ml-2 mt-1" />
+    </div>
+    <div class="col-10 mt-2 pl-0">
+      <div class="font-semibold">
+        <span class="job-title" (click)="onRedirectToJobDetails(job.id)">{{
+          job.title
+        }}</span>
+      </div>
+      <div class="font-light text-xs">
+        <span>{{ globalConstants.company }}: {{ job.companyName }}</span>
+        <span class="ml-4"
+          >{{ globalConstants.reference }}: {{ job.reference }}</span
+        >
+      </div>
+    </div>
+    <div class="col-1">
+      <span
+        *ngIf="displayStar"
+        class="icon-star"
+        [id]="'star-' + job.id"
+        [ngClass]="{ active: job.starred }"
+        (click)="onStarClicked(job)"
+      ></span>
+    </div>
+  </div>
+</div>

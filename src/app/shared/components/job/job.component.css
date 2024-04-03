@@ -1,0 +1,35 @@
+.job-entry {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #f3f3f3;
+  border-radius: 6px;
+  opacity: 1;
+  margin-top: 1%;
+}
+
+.company-logo {
+  width: 40px;
+  height: 40px;
+}
+
+.icon-star {
+  position: relative;
+  top: 30%;
+  left: 50%;
+  cursor: pointer;
+}
+
+.job-title {
+  cursor: pointer;
+}
+
+.job-title:hover {
+  text-decoration: underline;
+}
+
+.active {
+  background-color: #e4d00a;
+}

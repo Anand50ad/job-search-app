@@ -1,0 +1,11 @@
+<div class="job-favourites-container">
+  <app-job
+    *ngIf="favouriteJobsAvailable; else noFavouritesMsg"
+    [jobList]="jobFavourites"
+    [displayStar]="false"
+    (redirectToJobDetails)="onRedirectToJobDetails($event)"
+  />
+  <ng-template #noFavouritesMsg>
+    <p>{{ globalConstants.no_favourite_selected }}</p>
+  </ng-template>
+</div>

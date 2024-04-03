@@ -1,0 +1,10 @@
+<p-toast position="top-right"></p-toast>
+
+<div *ngIf="dataLoaded" class="job-list-container">
+  <app-job
+    [jobList]="jobList"
+    [displayStar]="true"
+    (redirectToJobDetails)="onRedirectToJobDetails($event)"
+    (starClicked)="onStarClicked($event)"
+  />
+</div>

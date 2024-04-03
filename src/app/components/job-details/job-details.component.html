@@ -1,0 +1,48 @@
+<p-toast position="top-right"></p-toast>
+
+<div *ngIf="dataLoaded" class="details-container">
+  <p-button
+    [label]="globalConstants.back"
+    icon="pi pi-home"
+    size="small"
+    (click)="redirectToJobList()"
+  ></p-button>
+  <div class="grid">
+    <div class="col-2 mt-2">
+      <img
+        [src]="selectedJobDetails.companyLogo"
+        class="company-logo ml-2 mt-1"
+      />
+    </div>
+    <div class="col-10 mt-2 pl-0">
+      <div class="font-semibold">
+        <span class="text-4xl">{{ selectedJobDetails.title }}</span>
+      </div>
+      <div class="text-xs mt-3">
+        <span
+          *ngFor="let type of selectedJobDetails?.types"
+          class="blue-oval mr-2"
+          >{{ type }}</span
+        >
+        <span
+          *ngFor="let industry of selectedJobDetails?.industries"
+          class="blue-oval mr-2"
+          >{{ industry }}</span
+        >
+      </div>
+    </div>
+  </div>
+  <div class="ml-2">
+    <span class="font-semibold">{{ globalConstants.publish_date }}: </span>
+    <span>{{
+      selectedJobDetails.publishDate | date : globalConstants.date_format
+    }}</span>
+    <br />
+    <span class="font-semibold">{{ globalConstants.location }}: </span>
+    <span>{{ selectedJobDetails.location }}</span> <br />
+    <span class="font-semibold">{{ globalConstants.reference }}: </span>
+    <span>{{ selectedJobDetails.reference }}</span> <br />
+    <span class="font-semibold">{{ globalConstants.description }}:</span>
+  </div>
+  <div class="mt-2" [innerHTML]="selectedJobDetails.description"></div>
+</div>
