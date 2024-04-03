@@ -4,6 +4,8 @@ import { Job } from '../../shared/models/jobs.model';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { GlobalConstants } from '../../shared/constants/global.constants';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { RouteConstants } from '../../shared/constants/route.constants';
 
 @Component({
   selector: 'app-job-favourites',
@@ -15,9 +17,13 @@ import { CommonModule } from '@angular/common';
 export class JobFavouritesComponent implements OnInit {
   jobFavourites: Job[] = [];
   favouriteJobsAvailable = false;
+  routeConstants = RouteConstants;
   globalConstants = GlobalConstants;
 
-  constructor(private localStorageService: LocalStorageService) {}
+  constructor(
+    private localStorageService: LocalStorageService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     if (
@@ -31,5 +37,10 @@ export class JobFavouritesComponent implements OnInit {
         this.favouriteJobsAvailable = true;
       }
     }
+  }
+
+  protected onRedirectToJobDetails(event: number): void {
+    this.localStorageService.setData(this.globalConstants.job_id, event);
+    this.router.navigate([this.routeConstants.job_details_route]);
   }
 }
